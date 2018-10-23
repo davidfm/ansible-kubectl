@@ -1,0 +1,5 @@
+required_packages:
+  - apt-transport-https
+
+kubectl_apt_key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+kubectl_repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
