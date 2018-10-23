@@ -1,0 +1,21 @@
+---
+- name: "Install required packages"
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ required_packages }}"
+
+- name: "Add Kubernetes Apt signing key"
+  apt_key:
+    url: "{{ kubectl_apt_key_url }}"
+    state: present
+
+- name: "Add Kubernetes repo"
+  apt_repository:
+    repo: "{{ kubectl_repo }}"
+    state: present
+
+- name: "Install Kubectl"
+  package:
+    name: kubectl
+    state: present
